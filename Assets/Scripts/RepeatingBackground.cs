@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RepeatingBackground : MonoBehaviour
 {
-    public GameObject camera;
+    public GameObject mainCamera;
     public float parallaxEffect;
     private float width, positionX;
 
@@ -13,14 +13,13 @@ public class RepeatingBackground : MonoBehaviour
     {
         width = GetComponent<SpriteRenderer>().bounds.size.x;
         positionX = transform.position.x;
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        float parallaxDistance = camera.transform.position.x * parallaxEffect;
-        float remainingDistance = camera.transform.position.x * (1 - parallaxEffect);
+        float parallaxDistance = mainCamera.transform.position.x * parallaxEffect;
+        float remainingDistance = mainCamera.transform.position.x * (1 - parallaxEffect);
 
         transform.position = new Vector3(positionX + parallaxDistance, transform.position.y, transform.position.z);
 
